@@ -31,14 +31,16 @@ Agenda:
 
 	GC
 	
-Общий принцип работы
-Слабая гипотеза о поколениях
-участки памяти
-stop the world
-основные сборщики: serial, parallel, cms, g1
-shenandoah
-Stream API
-методы в stream api
+-Общий принцип работы
+-Слабая гипотеза о поколениях
+-участки памяти
+-stop the world
+-основные сборщики: serial, parallel, cms, g1
+-shenandoah
+
+	Stream API
+
+-методы в stream api
 терминальные и промежуточные операции в стримах
 отличие stream api от collection (ответ есть на метаните - https://metanit.com/java/tutorial/10.1.php)
 отличие map от flatMap
