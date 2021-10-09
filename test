@@ -103,7 +103,17 @@ public class Program
 
 
 -deadlock и race condition
+
 -join
+
+метод Thread.join()
+Когда поток вызывает join() для другого потока, текущий работающий поток будет ждать, пока другой поток, 
+к которому он присоединяется, не будет завершён:
+
+void join()        
+void join(long millis) 
+void join(long millis, int nanos) 
+
 -yield
 -synchronize
 -wait и notify, Notify и notifyAll
