@@ -1,0 +1,190 @@
+Agenda:
+	-java core
+	-spring
+	-hibernate
+	-dataBase
+	-ооп
+	-архитектура
+	-разное
+
+	Java Core 
+
+	Многопоточность
+	
+-процесс и поток
+-создание потоков (Thread, Runnable, Callable)
+-deadlock и race condition
+-join
+-yield
+-synchronize
+-wait и notify, Notify и notifyAll
+-потокобезопасные коллекции. Сравнение коллекций из java.util.concurrent с Collection.synchronize()
+-атомики. Как работает метод getAndIncrement?
+-wait-free алгоритмы
+-устройство ConcurrentHashMap
+-пул потоков
+-Executors
+-Future, completablefuture
+-ReentrantLock. Отличие от synchronize
+-phaser, countDawnLatch, semaphore, cyclicBarrier
+-ForkJoinPool
+
+	GC
+	
+Общий принцип работы
+Слабая гипотеза о поколениях
+участки памяти
+stop the world
+основные сборщики: serial, parallel, cms, g1
+shenandoah
+Stream API
+методы в stream api
+терминальные и промежуточные операции в стримах
+отличие stream api от collection (ответ есть на метаните - https://metanit.com/java/tutorial/10.1.php)
+отличие map от flatMap
+метод peek. Отличие от map
+	Collection
+Set vs List
+ArrayList vs LinkedList
+Stack, Vector, Queue, Dequeue
+Устройство HashMap
+Устройство TreeMap. Алгоритм красно-черного дерева
+LinkedHashMap
+ConcurrentHashMap
+Что делать, чтобы не возникло исключение ConcurrentModificationException
+В чем разница между fail-safe и fail-fast свойствами
+Что такое стек и очередь, расскажите в чем их отличия
+В чем разница между интерфейсами Comparable и Comparator
+Почему коллекции не наследуют интерфейсы Cloneable и Serializable?
+Exceptions
+Checked vs Unchecked. Какие обрабатываются в try/catch и почему?
+try с ресурсами
+
+
+
+Spring
+Dependency Injection 
+пример модулей спринга
+что такое IoC
+что такое бин?
+способы конфигурации спринга
+scope бинов
+какой скоуп является потокобезопасным
+способы автовайринга, какой предпочтительнее и почему
+Если заинжектить в бин со скоупом синглтон другой бин со скоупом прототайп, то изменится ли скоуп у прототайп-бина
+lookup-метод
+жизненный цикл бинов
+разница между @Component, @Repository и @Service 
+DispatcherServlet и ContextLoaderListener
+ Interceptor и как он используется
+Spring security - как работает, какие способы авторизации (basic, digest, oauth2, jwt). Различия jwt и oAuth2, принцип работы
+как работает @Transactional
+как работают бины (cglib и прокси - https://medium.com/@kirill.sereda/spring-%D0%BF%D0%BE%D0%B4-%D0%BA%D0%B0%D0%BF%D0%BE%D1%82%D0%BE%D0%BC-9d92f2bf1a04 )
+
+
+ORM
+Что такое ORM
+Что такое Hibernate
+Что такое JPA
+Что такое JDBC
+Что есть помимо Hibernate
+Statement, PrepareStatement, CallableStatement - отличия. Statement vs PrepareStatement - что предпочтительнее, почему?
+Основные аннотации entity
+eager и lazy
+Hibernate SessionFactory. Является ли Hibernate SessionFactory потокобезоспансым?
+Как получить Hibernate Session и что это такое?
+Является ли Hibernate Session потокобезоспаным?
+Какая разница между методами Hibernate Session get() и load()?
+кэширование в Hibernate, кэш первого уровня в Hibernate
+Как настроить кэш второго уровня в Hibernate с помощью EHCache?
+Какие существуют различные состояния у entity bean?
+Как используется вызов метода Hibernate Session merge()?
+В чем разница между Hibernate save(), saveOrUpdate() и persist()?
+Что произойдет, если будет отсутствовать конструктор без аргументов у Entity Bean?
+В чем разница между sorted collection и ordered collection? Какая из них лучше?
+Способы создания запросов в hibernate (JPQL, HQL, Criteria API)
+Как реализованы Join’ы Hibernate?
+Почему мы не должны делать Entity class как final?
+Требования к Entity (конструктор без аргументов, первичный ключ @Id и т.д.)
+Можем ли мы выполнить нативный запрос SQL (sql native) в Hibernate?
+Что вы знаете о Hibernate прокси и как это помогает в ленивой загрузке (lazy load)?
+Как реализованы отношения в Hibernate?
+Как управлять транзакциями с помощью Hibernate?
+Что такое каскадные связи (обновления) и какие каскадные типы есть в Hibernate?
+N+1 проблема в hibernate
+Hibernate Envers
+Оптимистические и пессимистические блокировки в hibernate - как задать в коде
+Open Session In View (OSIV) - преимущества и недостатки
+
+ООП
+Назовите принципы ООП и расскажите о каждом.
+Что такое сигнатура метода?
+Какие методы называются перегруженными?
+Могут ли нестатические методы перегрузить статические?
+Расскажите про переопределение методов.
+Может ли метод принимать разное количество параметров (аргументы переменной длины)?
+Можно ли объявить метод абстрактным и статическим одновременно?
+Можно ли перегрузить static метод?
+О чем говорит ключевое слово final?
+Отличия интерфейса от абстрактного класса
+Что вы знаете о вложенных классах, зачем они используются? Классификация, варианты использования, о нарушении инкапсуляции.
+В чем разница вложенных и внутренних классов?
+Какие классы называются анонимными?
+Каким образом из вложенного класса получить доступ к полю внешнего класса?
+Каким образом можно обратиться к локальной переменной метода из анонимного класса, объявленного в теле этого метода? Есть ли какие-нибудь ограничения для такой переменной?
+SOLID. Какие ещё принципы ООП есть (kiss и т.д.)
+Паттерны проектирования. 
+делегирование, композиция, наследование, агрегация
+
+БД
+join’ы
+суметь написать select, делающий объединение двух таблиц и выборку по ним по условию
+where vs having
+distinct
+Свойства транзакции (ACID)
+Уровни изоляции транзакции (read commited ...)
+оптимистические и пессимистические блокировки
+Шардирование
+репликация
+партицирование
+
+Архитектура
+Виды и особенности архитектур: Монолит, МКС, SOA
+Основные слои приложения
+Dao, repository
+Dto, View
+Entity, Model
+SAGA
+CQRS и Event Sourcing
+Apache Servicemix
+Архитектура Клиент-сервер
+Многоярусный шаблон
+Многоуровневая архитектура
+MVC
+Ведущий-ведомый
+Каналы и фильтры
+Одноранговый шаблон
+Шина событий
+Шаблон посредника
+Шаблон Доска
+Шаблон интерпретатор
+
+
+Разное
+для чего нужны Immutable-объекты в java?
+посмотреть теорию по REST API
+POST, GET, PATCH, PUT, DELETE - когда какой использовать?
+что такое POJO
+посмотреть что такое SOAP
+паттерн mvc
+библиотека Jackson
+что такое restTemplate
+Что такое FeignClient
+oAuth2
+Отличие авторизации от аутентификации
+SpringCloud, Eureka
+Kubernettes, Docker Swarm
+Message Brokers: что такое JMS? Когда применяется? Компоненты архитектуры обмена сообщениями. Составные части JMS-сообщения. Модели обмена сообщениями.
+Полнотекстовый поиск, ElasticSearch. Какие есть альтернативы? Принципы работы.
+
+
