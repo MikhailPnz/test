@@ -115,6 +115,13 @@ void join(long millis)
 void join(long millis, int nanos) 
 
 -yield
+
+Чем отличаются методы Thread.sleep() и Thread.yield()?
+Метод yield() служит причиной того, что поток переходит из состояния работающий (running) в состояние работоспособный (runnable), 
+давая возможность другим потокам активизироваться. Но следующий выбранный для запуска поток может и не быть другим.
+
+Метод sleep() вызывает засыпание текущего потока на заданное время, состояние изменяется с работающий (running) на ожидающий (waiting).
+
 -synchronize
 -wait и notify, Notify и notifyAll
 -потокобезопасные коллекции. Сравнение коллекций из java.util.concurrent с Collection.synchronize()
